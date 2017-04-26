@@ -12,7 +12,7 @@
 <h1>List of Chefs</h1>
 <p>Our Restaurant is {{restaurant.name}} and it has been open for {{restaurant.yearsOpen}} year.</p>
 <ul>
-  {{#each chefs as |chef|}}
+  {{#each model as |chef|}}
     {{#if chef.cookingToday}}
       <li class="chef-available">{{chef.name}}
         <button {{action 'makeChefUnavailable' chef}}>Exit</button>
