@@ -1,10 +1,38 @@
-<h1>Chef Tracker</h1>
+<!-- <h1>Chef Tracker</h1> -->
 <!-- <br> -->
-<p>Is your favorite {{cookType}} cooking right now?</P>
+<!-- <p>Is your favorite {{cookType}} cooking right now?</P> -->
 <!-- <br> -->
-<p>Find out with the <b>Chef Tracker</b>, the hottest new {{cookType}}-tracking app on the market</p>
+<!-- <p>Find out with the <b>Chef Tracker</b>, the hottest new {{cookType}}-tracking app on the market</p> -->
 
-<p>We know some {{cookType}}s are better than others,
-so we want to tell you who's cooking at our restaurant right now.
-Is it your favorite {{cookType}}? Then maybe you should visit!</p>
-{{input value=cookType}}
+<!-- <p>We know some {{cookType}}s are better than others, -->
+<!-- so we want to tell you who's cooking at our restaurant right now. -->
+<!-- Is it your favorite {{cookType}}? Then maybe you should visit!</p> -->
+<!-- {{input value=cookType}} -->
+<!-- <br> -->
+<h1>List of Chefs</h1>
+<p>Our Restaurant is {{restaurant.name}} and it has been open for {{restaurant.yearsOpen}} year.</p>
+<ul>
+  {{#each chefs as |chef|}}
+    {{#if chef.cookingToday}}
+      <li class="chef-available">{{chef.name}}
+        <button {{action 'makeChefUnavailable' chef}}>Exit</button>
+      </li>
+    {{else}}
+      <li class="chef-not-available"><s>{{chef.name}}</s>
+        <button {{action 'makeChefAvailable' chef}}>Enter</button>
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+<h2>New header</h2>
+<p>Available Foods</p>
+<ul>
+  {{#each foods as |food|}}
+    {{#if food.isAvailable}}
+      <li>We have {{food.name}}.</li>
+    {{else}}
+      <li class="not-available">{{food.name}}.</li>
+    {{/if}}
+    <!-- {{if food.isAvailable 'AVAILABLE' 'SOLD OUT!'}}</li> -->
+  {{/each}}
+</ul>

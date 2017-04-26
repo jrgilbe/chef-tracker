@@ -1,0 +1,15 @@
+li.not-available {
+  color: grey;
+}
+#explanation {
+  text-decoration: underline;
+}
+
+li.chef-available {
+  color: black;
+  text-decoration: underline;
+}
+
+li.chef-not-available {
+  color: red;
+}
